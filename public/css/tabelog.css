@@ -212,3 +212,9 @@ a.navbar-brand img {
 .review-score-color:focus {
     color: #0fbe9f;
 }
+
+.tabelog-delete-submit-button {
+    border-radius: 2px;
+    color: #ffffff;
+    background-color: #d94b0e;
+}

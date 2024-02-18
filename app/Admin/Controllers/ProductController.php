@@ -32,6 +32,7 @@ class ProductController extends AdminController
         $grid->column('price', __('Price'))->sortable();
         $grid->column('category.name', __('Category Name'));
         $grid->column('image', __('Image'))->image();
+        $grid->column('recommend_flag', __('Recommend Flag'));
         $grid->column('address', __('Address'));
         $grid->column('businesshours', __('Businesshours'));
         $grid->column('regularholiday', __('Regularholiday'));
@@ -44,6 +45,7 @@ class ProductController extends AdminController
             $filter->like('description', '店舗説明');
             $filter->between('price', '金額');
             $filter->in('category_id', 'カテゴリー')->multipleSelect(Category::all()->pluck('name', 'id'));
+            $filter->equal('recommend_flag', 'おすすめフラグ')->select(['0' => 'false', '1' => 'true']);
         });
         
         return $grid;
@@ -64,6 +66,7 @@ class ProductController extends AdminController
         $show->field('price', __('Price'));
         $show->field('category.name', __('Category Name'));
         $show->field('image', __('Image'))->image();
+        $show->field('recommend_flag', __('Recommend Flag'));
         $show->field('address', __('Address'));
         $show->field('businesshours', __('Businesshours'));
         $show->field('regularholiday', __('Regularholiday'));
@@ -91,6 +94,7 @@ class ProductController extends AdminController
         $form->date('regularholiday', __('Regularholiday'))->default(date('Y-m-d'));
         $form->textarea('description', __('Description'));
         $form->image('image', __('Image'));
+        $form->switch('recommend_flag', __('Recommend Flag'));
 
         return $form;
     }

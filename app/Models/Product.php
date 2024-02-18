@@ -11,11 +11,11 @@ class Product extends Model
 {
     use HasFactory, Favoriteable, Sortable;
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Category::class);
     }
-
+    
     public function reviews()
     {
         return $this->hasMany(Review::class);
