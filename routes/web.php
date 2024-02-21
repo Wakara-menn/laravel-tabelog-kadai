@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\ReviewController;
+use App\Models\MajorCategory;
+use App\Http\Controllers\ReserveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +41,8 @@ Route::resource('products', ProductController::class)->middleware(['auth', 'veri
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::controller(ReserveController::class)->group(function () {
+    Route::get('products/{product}/reserve', 'index')->name('reserves.index');
+    Route::post('users/mypage/token', 'token')->name('mypage.token');
+});

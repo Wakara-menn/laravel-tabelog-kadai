@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('category_id')->unsigned();
             $table->text('address');
             $table->time('businesshours');
-            $table->varchar('regularholiday');
+            $table->string('regularholiday');
             $table->text('description');
             $table->timestamps();
         });

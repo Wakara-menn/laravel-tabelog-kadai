@@ -44,19 +44,19 @@
                 <input type="hidden" name="weight" value="0">
                 <div class="row">
                     <div class="col-7">
-                        <button type="submit" class="btn tabelog-submit-button w-100">
+                        <button href="{{ route('reserves.index', $product) }}" class="btn tabelog-submit-button w-100">
                             <i class="fas fa-reservation"></i>
                             このお店を予約する
                         </button>
                     </div>
                     <div class="col-5">
                     @if($product->isFavoritedBy(Auth::user()))
-                        <a href="{{ route('products.favorite', $product) }}" class="btn samuraimart-favorite-button text-favorite w-100">
+                        <a href="{{ route('products.favorite', $product) }}" class="btn tabelog-favorite-button text-favorite w-100">
                             <i class="fa fa-heart"></i>
                             お気に入り解除
                         </a>
                         @else
-                        <a href="{{ route('products.favorite', $product) }}" class="btn samuraimart-favorite-button text-favorite w-100">
+                        <a href="{{ route('products.favorite', $product) }}" class="btn tabelog-favorite-button text-favorite w-100">
                             <i class="fa fa-heart"></i>
                             お気に入り
                         </a>
