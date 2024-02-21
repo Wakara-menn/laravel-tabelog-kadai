@@ -44,5 +44,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::controller(ReserveController::class)->group(function () {
     Route::get('products/{product}/reserve', 'index')->name('reserves.index');
-    Route::post('users/mypage/token', 'token')->name('mypage.token');
+    Route::post('products/{product}/reserve', 'index')->name('reserves.index');
 });

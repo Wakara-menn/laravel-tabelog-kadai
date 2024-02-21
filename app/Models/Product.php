@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function reserve()
+    {
+        return $this->belongsTo(Reserve::class);
+    }
 }

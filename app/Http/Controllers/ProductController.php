@@ -133,4 +133,9 @@ class ProductController extends Controller
 
         return back();
     }
+
+    public function reserve(Product $product)
+    {
+        return view('reserves.index');
+    }
 }

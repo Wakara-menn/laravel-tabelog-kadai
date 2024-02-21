@@ -44,7 +44,7 @@
                 <input type="hidden" name="weight" value="0">
                 <div class="row">
                     <div class="col-7">
-                        <button href="{{ route('reserves.index', $product) }}" class="btn tabelog-submit-button w-100">
+                        <button href="{{ route('products.reserve', $product) }}" class="btn tabelog-submit-button w-100">
                             <i class="fas fa-reservation"></i>
                             このお店を予約する
                         </button>

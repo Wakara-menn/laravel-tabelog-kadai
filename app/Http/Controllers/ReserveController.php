@@ -8,57 +8,20 @@ class ReserveController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $users = User::all();
+        $products = Product::all();
+
+        $reserve->reserve_date = $request->input('reserve_date') ? $request->input('reserve_date') : $reserve->name;
+        $reserve->reserve_time = $request->input('reserve_time') ? $request->input('reserve_time') : $user->reserve_time;
+        $reserve->reserve_people = $request->input('reserve_people') ? $request->input('reserve_people') : $user->reserve_people;
+        $reserve->update();
+
+        return view('reserves.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
