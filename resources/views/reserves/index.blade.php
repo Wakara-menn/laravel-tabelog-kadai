@@ -1,37 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-2">
-        @component('components.sidebar', ['categories' => $categories, 'major_categories' => $major_categories])
-        @endcomponent
-    </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <span>
+                <a href="{{ route('products.index') }}">店舗詳細</a> > 予約
+            </span>
 
-    <div class="col-9">
-        <div class="container mt-4">
-            <div class="row w-100">
-                @foreach($products as $product)
-                <div class="col-3">
-                    <a href="{{route('products.show', $product)}}">
-                        @if ($product->image !== "")
-                        <img src="{{ asset($product->image) }}" class="img-thumbnail">
-                        @else
-                        <img src="{{ asset('img/picture.png')}}" class="img-thumbnail">
-                        @endif
-                    </a>
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="tabelog-product-label mt-2">
-                                {{$product->name}}<br>
-                                <label>￥{{$product->price}}</label>
-                            </p>
-                        </div>
+            <h1 class="mt-3 mb-3">会員情報の編集</h1>
+            <hr>
+
+        
+            <form method="POST" action="{{ route('product.{product}') }}">
+                @csrf
+                <input type="hidden" name="_method" value="PUT">
+                <div class="form-group">
+                    <div>
+                        <label>予約日</label>
+                    </div>
+                    <div>
+                        <input id="reserve_date" type="text" class="form-control @error('reserve_date') is-invalid @enderror" name="reserve_date" value="{{ $user->reserve_date }}" required autocomplete="reserve_date">
+                        @error('reserve_date')
+                        <span>
+                            <strong>予約日を入力してください</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
-                @endforeach
-            </div>
-        </div>
+                <br>
 
+                <div class="form-group">
+                    <div>
+                        <label>予約時間</label>
+                    </div>
+                    <div>
+                        <input id="reserve_time" type="text" class="form-control @error('reserve_time') is-invalid @enderror" name="reserve_time" value="{{ $user->reserve_time }}" required autocomplete="reserve_time">
+                        @error('reserve_time')
+                        <span>
+                            <strong>予約時間を入力してください</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <br>
 
-</div>
-@endsection
+                <div class="form-group">
+                    <div>
+                        <label for="reserve_people">人数</label>
+                    </div>
+                    <div>
+                        <input id="reserve_people" type="text" class="form-control @error('reserve_people') is-invalid @enderror" name="reserve_people" value="{{ $user->reserve_people }}" required autocomplete="reserve_people">
+                        @error('reserve_people')
+                        <span>
+                            <strong>人数を入力してください</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <hr>
+                <button type="submit">
+                    保存
+                </button>
+            </form>

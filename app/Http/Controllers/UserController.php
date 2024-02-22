@@ -38,7 +38,8 @@ class UserController extends Controller
         $user->phone = $request->input('phone') ? $request->input('phone') : $user->phone;
         $user->update();
 
-        return to_route('mypage');    }
+        return to_route('mypage');
+    }
 
     public function update_password(Request $request)
     {
