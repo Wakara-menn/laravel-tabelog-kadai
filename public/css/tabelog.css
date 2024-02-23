@@ -218,3 +218,9 @@ a.navbar-brand img {
     color: #ffffff;
     background-color: #d94b0e;
 }
+
+.tabelg-reserve-input{
+    border-radius: 2px;
+    border: solid 1px #b2b2b2;
+    background-color: #ffffff;
+}

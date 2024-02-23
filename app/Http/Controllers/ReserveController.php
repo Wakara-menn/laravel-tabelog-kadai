@@ -15,14 +15,14 @@ class ReserveController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::all();
         $products = Product::all();
+        $users = User::all();
         $reserve->reserve_date = $request->input('reserve_date');
         $reserve->reserve_time = $request->input('reserve_time');
         $reserve->categoryreserve_people = $request->input('reserve_people');
         $reserve->save();
 
-        return view('reserves.index', $product);
+        return view('reserves.index');
     }
 
 }

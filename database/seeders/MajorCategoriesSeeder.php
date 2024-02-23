@@ -11,7 +11,7 @@ class MajorCategoriesSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
         $major_category_names = [
             '居酒屋', '焼肉', '寿司', 'ラーメン', '定食', 'カレー',
@@ -21,7 +21,7 @@ class MajorCategoriesSeeder extends Seeder
             '和食', 'おでん', '焼き鳥', 'すき焼き', 'しゃぶしゃぶ', '天ぷら', '揚げ物', '丼物', '鉄板焼き'
         ];
 
-        foreach ($major_category_names as $major_category_name) {
+        if (isset($major_category_names)) {
             MajorCategory::create([
                 'name' => $major_category_name,
                 'description' => $major_category_name,
