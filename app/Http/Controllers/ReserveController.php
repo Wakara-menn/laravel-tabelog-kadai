@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\User;
 
 class ReserveController extends Controller
 {
@@ -20,7 +22,7 @@ class ReserveController extends Controller
         $reserve->categoryreserve_people = $request->input('reserve_people');
         $reserve->save();
 
-        return view('reserves.index');
+        return view('reserves.index', $product);
     }
 
 }

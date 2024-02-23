@@ -44,10 +44,9 @@
                 <input type="hidden" name="weight" value="0">
                 <div class="row">
                     <div class="col-7">
-                        <button href="{{ route('products.reserve', $product) }}" class="btn tabelog-submit-button w-100">
-                            <i class="fas fa-reservation"></i>
-                            このお店を予約する
-                        </button>
+                        <form method="POST" action="{{ route('reserves.index', $product) }}">
+                            <button type="submit">このお店を予約する</button>
+                        </form>
                     </div>
                     <div class="col-5">
                     @if($product->isFavoritedBy(Auth::user()))
