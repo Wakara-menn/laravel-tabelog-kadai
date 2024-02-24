@@ -18,7 +18,7 @@
                 </h1>
                 <hr>
                 <p class="d-flex align-items-end">
-                    予算：￥{{$product->price}}(税込)
+                    予算：￥{{$product->price}}
                 </p>
                 <hr>
                 <p class="">
@@ -40,9 +40,6 @@
             </div>
             @Auth
             <form method="POST" action="{{ route('reserves.index', $product) }}" class="m-3 align-items-end">
-                @csrf
-                <input type="hidden" name="id" value="{{$product->id}}">
-                <input type="hidden" name="name" value="{{$product->name}}">
                 <input type="hidden" name="weight" value="0">
                 <div class="row">
                     <div class="col-7">

@@ -4,11 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <span>
-                <a href="{{ route('products.show', $product->id) }}">店舗詳細</a> > 予約
-            </span>
-            
-            <form method="POST" action="{{ products/{product}/reserve', 'index' }}">
+            <form method="GET" action="{{ route('products/{product}/reserve', 'index') }}">
                 @csrf
                 
                 <div class="form-group row">
