@@ -45,6 +45,6 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::controller(ReserveController::class)->group(function () {
-    Route::get('products/{product}/reserve', 'reserve')->name('reserves.index');
-    Route::post('products/{product}/reserve', 'reserve')->name('reserves.index');
+    Route::get('products/{product}/reserve', 'index')->name('reserves.index');
+    Route::post('products/{product}/reserve', 'index')->name('reserves.index');
 });

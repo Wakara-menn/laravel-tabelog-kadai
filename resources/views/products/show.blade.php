@@ -73,7 +73,7 @@
             <div class="row">
                 @foreach($reviews as $review)
                 <div class="offset-md-5 col-md-5">
-                     <h3 class="review-score-color">{{ str_repeat('★', $review->score) }}</h3>
+                    <h3 class="review-score-color">{{ str_repeat('★', $review->score) }}</h3>
                     <p class="h3">{{$review->content}}</p>
                     <label>{{$review->created_at}} {{$review->user->name}}</label>
                 </div>
