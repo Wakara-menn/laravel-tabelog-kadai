@@ -17,12 +17,12 @@
                     {{$product->name}}
                 </h1>
                 <hr>
-                <p class="d-flex align-items-end">
+                <p class="">
                     予算：￥{{$product->price}}
                 </p>
                 <hr>
                 <p class="">
-                    住所：{{$product->adress}}
+                    住所：{{$product->address}}
                 </p>
                 <hr>
                 <p class="">
@@ -33,7 +33,7 @@
                     定休日：{{$product->regularholiday}}
                 </p>
                 <hr>
-                <p class="">
+                <p class="d-flex align-items-end">
                     {{$product->description}}
                 </p>
                 <hr>

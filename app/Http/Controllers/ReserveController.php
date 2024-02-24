@@ -17,4 +17,12 @@ class ReserveController extends Controller
     {
         return view('reserves.index');
     }
+
+    /*
+     * 完了画面出力
+     */
+    public function complete()
+    {
+        return view('reserves.complete');
+    }
 }
