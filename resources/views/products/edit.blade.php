@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             <label for="product-price">価格</label>
-            <input type="number" name="price" id="product-price" class="form-control" value="{{ $product->price }}">
+            <input type="text" name="price" id="product-price" class="form-control" value="{{ $product->price }}">
         </div>
         <div class="form-group">
             <label for="product-category">カテゴリ</label>
@@ -34,11 +34,11 @@
         </div>
         <div class="form-group">
             <label for="product-businesshours">営業時間</label>
-            <input type="time" name="businesshours" id="product-businesshours" class="form-control" value="{{ $product->businesshours }}">
+            <input type="text" name="businesshours" id="product-businesshours" class="form-control" value="{{ $product->businesshours }}">
         </div>
         <div class="form-group">
             <label for="product-regularholiday">定休日</label>
-            <input type="date" name="regularholiday" id="product-regularholiday" class="form-control" value="{{ $product->regularholiday }}">
+            <input type="text" name="regularholiday" id="product-regularholiday" class="form-control" value="{{ $product->regularholiday }}">
         </div>
         <div class="form-group">
             <label for="product-description">店舗説明</label>

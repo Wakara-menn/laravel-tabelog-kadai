@@ -5,13 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-5">
             <span>
-                <a href="{{ route('products.{product}') }}">店舗詳細</a> > 予約
+                <a href="{{ route('products.show', $product->id) }}">店舗詳細</a> > 予約
             </span>
-
-            <h1 class="mt-3 mb-3">会員情報の編集</h1>
-            <hr>
-
-            <form method="POST" action="{{ route('login') }}">
+            
+            
+<form method="POST" action="{{ products/{product}/reserve', 'index' }}">
                 @csrf
             
                 <div class="form-group row">
@@ -60,3 +58,26 @@
                     </button>
                 </div>
             </form>
+
+            <form method="post" action="{{ route('products.show', $product->id) }}" class="d-flex justify-content-end mt-3">
+                <div class="modal fade" id="reserve-confirm-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">予約を確定しますか？</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="閉じる">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn tabelog-favorite-button border-dark text-dark" data-bs-dismiss="modal">閉じる</button>
+                                <button type="submit" class="btn tabelog-submit-button">購入</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection

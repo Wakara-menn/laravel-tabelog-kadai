@@ -2,18 +2,7 @@
 
 @section('content')
 <main class="py-4 mb-5">
-    @include('modals.mypage')
-    
-    <div id="modal_open">
-        <div class="d-flex mb-3">
-            <a href="#" class="link-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#addGoalModal">
-                <div class="d-flex align-items-center">
-                    <span class="fs-5 fw-bold">＋</span>&nbsp;目標の追加
-                </div>
-            </a>          
-        </div>      
-    </div>
-    
+
     <div class="d-flex justify-content-center">
         <div class="container w-50">
             @if (!empty($card))

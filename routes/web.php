@@ -21,6 +21,8 @@ use App\Http\Controllers\ReserveController;
 
 Route::get('/',  [WebController::class, 'index'])->name('top');
 
+Route::resource('products', ProductController::class);
+
 Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage', 'mypage')->name('mypage');
     Route::get('users/mypage/edit', 'edit')->name('mypage.edit');

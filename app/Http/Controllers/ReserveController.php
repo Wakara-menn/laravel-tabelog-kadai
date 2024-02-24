@@ -25,4 +25,8 @@ class ReserveController extends Controller
         return view('reserves.index');
     }
 
+    public function showReservationPage()
+    {
+        return view('index');
+    }
 }
