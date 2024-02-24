@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\MajorCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Reserve;
 
 class ProductController extends Controller
 {

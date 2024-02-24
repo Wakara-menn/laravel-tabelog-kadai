@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <form method="POST" action="{{ route('reserves.index') }}">
+        <form method="post" action="{{ route('reserves.index', ['reserve' => {'reserve'}]) }}">
             @csrf   
             <div class="md-form">
                 <label for="reserve_date">予約日</label>

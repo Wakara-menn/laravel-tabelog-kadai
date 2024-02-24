@@ -15,7 +15,10 @@ class ReserveController extends Controller
      */
     public function index(Request $request)
     {
-        return view('reserves.index');
+        $reserves = $product->reserves()->get();
+    
+        return view('reserves.index', compact('product', 'reserves'));
+
     }
 
     /*
