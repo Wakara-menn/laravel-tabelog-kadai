@@ -6,6 +6,9 @@ use App\Models\User;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Reserve;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -137,5 +140,42 @@ class UserController extends Controller
         }
 
         return to_route('mypage');
+    }
+    
+    public function reserve_history_index(Request $request)
+    {
+        $page = $request->page != null ? $request->page : 1;
+        $user_id = Auth::user()->id;
+        $billings = Reserve::getUserReservelists($user_id);
+        $total = count($billings);
+        $billings = new LengthAwarePaginator(array_slice($billings, ($page - 1) * 15, 15), $total, 15, $page, array('path' => $request->url()));
+
+        return view('users.reserve_history_index', compact('billings', 'total'));
+    }
+
+    public function reserve_history_show(Request $request)
+    {
+        $num = $request->num;
+        $user_id = Auth::user()->id;
+        $reserve_info = DB::table('reserve')->where('instance', $user_id)->where('number', $num)->get()->first();
+        Reserve::instance($user_id)->restore($reserve_info->identifier);
+        $reserve_contents = Reserve::content();
+        Reserve::instance($user_id)->store($reserve_info->identifier);
+        Reserve::destroy();
+
+        DB::table('reserve')->where('instance', $user_id)
+            ->where('number', null)
+            ->update(
+                [
+                    'product_id' => $reserve_info->product_id,
+                    'number' => $num,
+                    'reserve_date' => $reserve_info->reserve_date,
+                    'reserve_time' => $reserve_info->reserve_time,
+                    'reserve_people' => $reserve_info->reserve_people,
+                    'updated_at' => $reserve_info->updated_at
+                ]
+            );
+
+        return view('users.reserve_history_show', compact('reserve_contents', 'reserve_info'));
     }
 }
