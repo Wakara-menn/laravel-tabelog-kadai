@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\User;
+use App\Models\Reserve;
 
 class ReserveController extends Controller
 {
@@ -13,19 +12,12 @@ class ReserveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Reserve $reserve)
     {
-        $reserves = $product->reserves()->get();
-    
-        return view('reserves.index', compact('product', 'reserves'));
-
-    }
-
-    /*
-     * 完了画面出力
-     */
-    public function complete()
-    {
-        return view('reserves.complete');
+        $reserve->reserve_date = $request->input('reserve_date') ? $request->input('reserve_date') : $reserve->reserve_date;
+        $reserve->reserve_time = $request->input('reserve_time') ? $request->input('reserve_time') : $reserve->reserve_time;
+        $reserve->reserve_people = $request->input('reserve_people') ? $request->input('reserve_people') : $reserve->reserve_people;
+        
+        return view('reserves.index');
     }
 }

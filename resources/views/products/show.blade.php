@@ -39,7 +39,7 @@
                 <hr>
             </div>
             @Auth
-            <form method="POST" action="{{ route('reserves.index', $product) }}" class="m-3 align-items-end">
+            <form method="GET" action="{{ route('reserves.index', $product) }}" class="m-3 align-items-end">
                 <input type="hidden" name="weight" value="0">
                 <div class="row">
                     <div class="col-7">
