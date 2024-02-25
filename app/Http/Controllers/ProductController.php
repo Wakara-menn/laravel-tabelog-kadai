@@ -137,6 +137,8 @@ class ProductController extends Controller
 
     public function reserve(Product $product)
     {
-        return view('reserves.index');
+        $reserves = $product->reserves()->get();
+  
+        return view('products.show',  compact('product', 'reserves'));
     }
 }

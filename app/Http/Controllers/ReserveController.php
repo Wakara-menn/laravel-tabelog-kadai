@@ -20,4 +20,20 @@ class ReserveController extends Controller
         
         return view('reserves.index');
     }
+
+    public function store(Request $request)
+    {
+        $reserve = new Reserve();
+        $reserve->reserve_date = $request->input('reserve_date');
+        $reserve->reserve_time = $request->input('reserve_time');
+        $reserve->reserve_people = $request->input('reserve_people');
+        $reserve->save();
+
+        return to_route('reserves.store');
+    }
+
+    public function complete(Request $request)
+    {
+        return view('reserves.complete');
+    }
 }

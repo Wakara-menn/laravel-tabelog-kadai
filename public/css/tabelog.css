@@ -224,3 +224,7 @@ a.navbar-brand img {
     border: solid 1px #b2b2b2;
     background-color: #ffffff;
 }
+
+#modalBody {
+    white-space: pre-wrap;
+}
