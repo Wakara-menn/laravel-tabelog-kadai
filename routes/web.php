@@ -48,8 +48,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::controller(ReserveController::class)->group(function () {
     Route::get('products/{product}/reserve', 'index')->name('reserves.index');
-    Route::get('products/{product}/reserve', 'show')->name('reserves.show');
+    Route::post('products/{product}/reserve', 'index')->name('reserves.index');
+    Route::get('products/{product}/reserve/show', 'show')->name('reserves.show');
+    Route::post('products/{product}/reserve/show', 'show')->name('reserves.show');
     Route::get('products/{product}/reserve/complete', 'complete')->name('reserves.complete');
+    Route::post('products/{product}/reserve/complete', 'complete')->name('reserves.complete');
 });
 
 // Route::post('reserves', [ReserveController::class, 'show'])->name('reserves.show');

@@ -87,11 +87,11 @@ class ProductController extends AdminController
         $form = new Form(new Product());
 
         $form->text('name', __('Name'));
-        $form->number('price', __('Price'));
+        $form->text('price', __('Price'));
         $form->select('category_id', __('Category Name'))->options(Category::all()->pluck('name', 'id'));
         $form->textarea('address', __('Address'));
-        $form->time('businesshours', __('Businesshours'))->default(date('H:i:s'));
-        $form->date('regularholiday', __('Regularholiday'))->default(date('Y-m-d'));
+        $form->text('businesshours', __('Businesshours'));
+        $form->text('regularholiday', __('Regularholiday'));
         $form->textarea('description', __('Description'));
         $form->image('image', __('Image'));
         $form->switch('recommend_flag', __('Recommend Flag'));

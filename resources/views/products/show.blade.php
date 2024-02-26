@@ -39,8 +39,8 @@
                 <hr>
             </div>
             @Auth
-            <form method="GET" action="{{ route('reserves.index', $product) }}" class="m-3 align-items-end">
-                <input type="hidden" name="weight" value="0">
+            <form method="POST" action="{{ route('reserves.index', $product) }}" class="m-3 align-items-end">
+                @csrf
                 <div class="row">
                     <div class="col-7">
                         <button type="submit" class="btn tabelog-submit-button w-100">このお店を予約する</button>

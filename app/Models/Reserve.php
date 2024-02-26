@@ -20,22 +20,20 @@ class Reserve extends Model
         return $this->belongsTo(Product::class);
     }
 
-    protected $table = 'reserve';
-
     public static function getUserReservelists($user_id)
     {
-        $reserves = DB::table('reserve')->where("instance", "{$user_id}")->get();
+        $reserves = DB::table('reserves')->where("user_id", "{$user_id}")->get();
 
         $orders = [];
 
-        foreach ($reserve as $order) {
+        foreach ($reserves as $order) {
             $orders[] = [
-                'id' => $order->number,
+                'id' => $order->id,
                 'created_at' => $order->updated_at,
                 'date' => $order->reserve_date,
                 'time' => $order->reserve_time,
                 'people' => $order->reserve_people,
-                'user_name' => User::find($order->instance)->name,
+                'user_name' => User::find($order->user_id)->name,
             ];
         }
 

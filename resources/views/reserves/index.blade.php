@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="GET" action="{{ route('reserves.index', ['product' => 1]) }}">
+    <form method="POST" action="{{ route('reserves.show', $product) }}">
         @csrf
         <div class="form-group row mb-3">
             <label for="reserve_date" class="col-md-3 col-form-label text-md-right">予約日</label>
@@ -40,11 +40,9 @@
         </div>
 
         <div class="btn">
-        <td><a href="{{ route('reserves.show') }}" class="btn btn-primary">確認画面へ</a></td>
-
-        <!-- <button type="button" href="{{route('reserves.show')}}" class="btn btn-primary form-btn" data-toggle="modal" data-target="#exampleModalCenter"> -->
-                <!-- 確認画面へ -->
-            <!-- </button> -->
+            <button type="submit" class="btn btn-primary form-btn" data-toggle="modal" data-target="#exampleModalCenter">
+                確認画面へ
+            </button>
         </div>
     </form>
 

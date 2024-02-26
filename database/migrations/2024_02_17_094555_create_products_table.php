@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('price');
+            $table->integer('price')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->text('address');
-            $table->text('businesshours');
-            $table->text('regularholiday');
+            $table->time('businesshours');
+            $table->date('regularholiday');
             $table->text('description');
             $table->timestamps();
         });
