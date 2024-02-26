@@ -34,6 +34,7 @@ class Reserve extends Model
                 'time' => $order->reserve_time,
                 'people' => $order->reserve_people,
                 'user_name' => User::find($order->user_id)->name,
+                'product_name' => Product::find($order->product_id)->name,
             ];
         }
 

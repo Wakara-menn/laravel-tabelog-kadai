@@ -19,23 +19,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($billings as $billing)
+                        @foreach($reserves as $reserve)
                         <tr>
-                            <td>{{ $billing['code'] }}</td>
-                            <td>{{ $billing['created_at']}}</td>
-                            <td>{{ $billing['total']}}</td>
-                            <td>
-                                <a href="{{ route('mypage.reserve_history_index', $billing['id']) }}">
-                                    詳細を確認する
-                                </a>
-                            </td>
+                            <td>{{ $reserve['product_name'] }}</td>
+                            <td>{{ $reserve['date']}}</td>
+                            <td>{{ $reserve['time']}}</td>
+                            <td>{{ $reserve['people']}}</td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
 
-            {{ $billings->links() }}
+            {{ $reserves->links() }}
         </div>
     </div>
 </div>

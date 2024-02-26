@@ -33,7 +33,7 @@ Route::controller(UserController::class)->group(function () {
     Route::delete('users/mypage/delete', 'destroy')->name('mypage.destroy');
     Route::get('users/mypage/register_card', 'register_card')->name('mypage.register_card');
     Route::post('users/mypage/token', 'token')->name('mypage.token');
-    Route::get('users/mypage/reserve_history', 'reserve_history_index')->name('mypage.reserve_history');
+    Route::get('users/mypage/reserve_history', 'reserve_history_index')->name('mypage.reserve_history_index');
     Route::get('users/mypage/reserve_history/{num}', 'reserve_history_show')->name('mypage.reserve_history_show');
 });
 

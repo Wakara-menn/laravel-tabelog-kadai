@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center">
-                    <a href="{{ route('mypage.reserve_history') }}">
+                    <a href="{{ route('mypage.reserve_history_index') }}">
                         <i class="fas fa-chevron-right fa-2x"></i>
                     </a>
                 </div>
