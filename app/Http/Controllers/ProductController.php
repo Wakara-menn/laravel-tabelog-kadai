@@ -77,8 +77,10 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $reviews = $product->reviews()->get();
-  
-        return view('products.show', compact('product', 'reviews'));
+        $user = Auth::user();
+        $card_token = Auth::user()->token;
+        
+        return view('products.show', compact('product', 'reviews', 'card_token'));
     }
 
     /**
@@ -137,7 +139,7 @@ class ProductController extends Controller
 
     public function reserve(Product $product)
     {
-        $reserves = $product->reserves()->get();
+        $reserves = $product->reserves()->post();
   
         return view('products.show',  compact('product', 'reserves'));
     }

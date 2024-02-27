@@ -39,6 +39,7 @@
                 <hr>
             </div>
             @Auth
+            @if(!empty($card_token))
             <form method="POST" action="{{ route('reserves.index', $product) }}" class="m-3 align-items-end">
                 @csrf
                 <div class="row">
@@ -61,6 +62,7 @@
                     </div>
                 </div>
             </form>
+            @endif
             @endauth
         </div>
 
@@ -83,6 +85,7 @@
             @auth
             <div class="row">
                 <div class="offset-md-5 col-md-5">
+                    @if(!empty($card_token))
                     <form method="POST" action="{{ route('reviews.store') }}">
                         @csrf
                         <h4>評価</h4>
@@ -101,6 +104,7 @@
                         <input type="hidden" name="product_id" value="{{$product->id}}">
                         <button type="submit" class="btn tabelog-submit-button ml-2">レビューを追加</button>
                     </form>
+                    @endif
                 </div>
             </div>
             @endauth
