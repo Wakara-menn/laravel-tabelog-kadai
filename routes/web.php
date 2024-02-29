@@ -34,6 +34,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage/register_card', 'register_card')->name('mypage.register_card');
     Route::post('users/mypage/token', 'token')->name('mypage.token');
     Route::get('users/mypage/reserve_history', 'reserve_history_index')->name('mypage.reserve_history_index');
+	route::delete('users/mypage/reserve_canncel', 'reserve_canncel')->name('reserve_canncel');
 });
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');

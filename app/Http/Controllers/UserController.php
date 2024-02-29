@@ -152,4 +152,13 @@ class UserController extends Controller
 
         return view('users.reserve_history_index', compact('reserves'));
     }
+
+    public function reserve_canncel(Request $request)
+    {
+        $reserve_id = $request->reserve_id;
+        $message = Reserve::deleteReserve($reserve_id);
+        
+        return redirect()->route('mypage.reserve_history_index')->with(compact('message'));
+    }
+
 }

@@ -40,4 +40,15 @@ class Reserve extends Model
 
         return $orders;
     }
+
+    public static function deleteReserve($reserve_id)
+    {
+        $delete = DB::table('reserves')->where('id', $reserve_id)->delete();
+        if($delete > 0){
+            $message = '予約をキャンセルしました';
+        }else{
+            $message = 'キャンセルに失敗しました';
+        }
+        return $message;
+    }
 }
