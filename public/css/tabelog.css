@@ -133,7 +133,7 @@ label {
     line-height: normal;
     letter-spacing: normal;
     color: #ffffff;
-    background-color: #0fbe9f;
+    background-color: #ffc107;
 }
 
 .tabelog-login-text {
@@ -144,7 +144,7 @@ label {
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #0fbe9f;
+    color: #ffc107;
 }
 
 .tabelog-header-container {
@@ -157,7 +157,7 @@ label {
 }
 
 .tabelog-header-search-button {
-    background-color: #0fbe9f;
+    background-color: #ffc107;
 }
 
 .tabelog-header-search-icon {
@@ -178,12 +178,12 @@ a.navbar-brand img {
 
 .tabelog-favorite-button {
     border-radius: 2px;
-    border: solid 1px #0fbe9f;
+    border: solid 1px #ffc107;
     background-color: #ffffff;
 }
 
 .text-favorite {
-    color: #0fbe9f;
+    color: #ffc107;
 }
 
 .tabelog-sidebar-category-label {
@@ -202,15 +202,15 @@ a.navbar-brand img {
 .tabelog-favorite-add-cart {
     border-radius: 2px;
     color: #ffffff;
-    background-color: #0fbe9f;
+    background-color: #ffc107;
 }
 
 .review-score-color {
-    color: #0fbe9f;
+    color: #ffc107;
 }
 
 .review-score-color:focus {
-    color: #0fbe9f;
+    color: #ffc107;
 }
 
 .tabelog-delete-submit-button {
