@@ -36,10 +36,10 @@
                     <div class="col-2 d-flex align-items-center">
                         <i class="fas fa-credit-card fa-3x"></i>
                     </div>
-                    <div class="col-9 d-flex align-items-center ms-2 mt-3">
+                    <div class="col-8 d-flex align-items-center ms-2 mt-3">
                         <div class="d-flex flex-column">
-                            <label for="user-name">クレジットカードの登録</label>
-                            <p>クレジットカードの登録</p>
+                            <label for="user-name">有料会員の登録</label>
+                            <p>クレジットカードを登録し、有料会員登録をします</p>
                         </div>
                     </div>
                 </div>

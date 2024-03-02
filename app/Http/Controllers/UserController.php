@@ -161,4 +161,17 @@ class UserController extends Controller
         return redirect()->route('mypage.reserve_history_index')->with(compact('message'));
     }
 
+    public function delete_card(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $users = User::where('id', $user_id)->first();
+        $users->token = '';
+        $result = $users->save();
+        if($result){
+            $message = 'カードを削除しました';
+        }else{
+            $message = 'カード削除に失敗しました';
+        }
+        return redirect()->route('mypage.register_card')->with(compact('message'));
+    }
 }

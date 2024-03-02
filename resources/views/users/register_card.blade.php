@@ -16,10 +16,12 @@
 
             <form action="{{ route('mypage.token') }}" method="post">
                 @csrf
+                <p class="message">{{ session('message') ?? '' }}</p>
                 @if (empty($card))
                 <script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button" data-key="{{ ENV('PAYJP_PUBLIC_KEY') }}" data-on-created="onCreated" data-text="カードを登録する" data-submit-text="カードを登録する"></script>
                 @else
                 <script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button" data-key="{{ ENV('PAYJP_PUBLIC_KEY') }}" data-on-created="onCreated" data-text="カードを更新する" data-submit-text="カードを更新する"></script>
+                <a href="{{ route('delete_card') }}" onClick="return confirm('本当に削除しますか？');">カードを削除する</a>
                 @endif
             </form>
         </div>
