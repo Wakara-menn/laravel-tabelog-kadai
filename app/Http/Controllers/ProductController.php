@@ -18,6 +18,11 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        if (($request->input('search')) !== null) {
+            $search = $request->input('search');
+            $products = Product::where('name', 'LIKE', "%$search%")->sortable()->paginate(15);
+        }
+
         if ($request->category !== null) {
             $products = Product::where('category_id', $request->category)->sortable()->paginate(15);
             $total_count = Product::where('category_id', $request->category)->count();
@@ -80,6 +85,14 @@ class ProductController extends Controller
         $user = Auth::user();
         $card_token = Auth::user()->token;
         
+        $customer = $user->id;
+
+        if (($request->input('products')) !== null) {
+            $search = $request->input('search');
+            $products = Product::where('name', 'LIKE', "%$search%")->sortable()->paginate(15);
+        }
+
+
         return view('products.show', compact('product', 'reviews', 'card_token'));
     }
 

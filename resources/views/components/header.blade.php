@@ -3,9 +3,9 @@
     <a class="navbar-brand" href="{{ url('/') }}">
         <img src="{{asset('img/logo.jpg')}}">
     </a>
-    <form class="row g-1">
+    <form class="row g-1" action="{{ route('products.index') }}" method="GET">
       <div class="col-auto">
-        <input class="form-control tabelog-header-search-input">
+        <input class="form-control tabelog-header-search-input" name="search">
       </div>
       <div class="col-auto">
         <button type="submit" class="btn tabelog-header-search-button"><i class="fas fa-search tabelog-header-search-icon"></i></button>

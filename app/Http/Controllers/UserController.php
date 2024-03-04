@@ -172,6 +172,7 @@ class UserController extends Controller
         }else{
             $message = 'カード削除に失敗しました';
         }
+        
         return redirect()->route('mypage.register_card')->with(compact('message'));
     }
 }

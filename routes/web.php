@@ -42,7 +42,7 @@ Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store'
 
 Route::get('products/{product}/favorite', [ProductController::class, 'favorite'])->name('products.favorite');
 
-Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
+// Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -55,5 +55,3 @@ Route::controller(ReserveController::class)->group(function () {
     Route::get('products/{product}/reserve/complete', 'complete')->name('reserves.complete');
     Route::post('products/{product}/reserve/complete', 'complete')->name('reserves.complete');
 });
-
-// Route::post('reserves', [ReserveController::class, 'show'])->name('reserves.show');
