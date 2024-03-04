@@ -85,10 +85,8 @@ class ProductController extends Controller
         $user = Auth::user();
         $card_token = Auth::user()->token;
         
-        $customer = $user->id;
-
-        if (($request->input('products')) !== null) {
-            $search = $request->input('search');
+        if (($request->input('product')) !== null) {
+            $product = $request->input('product');
             $products = Product::where('name', 'LIKE', "%$search%")->sortable()->paginate(15);
         }
 
