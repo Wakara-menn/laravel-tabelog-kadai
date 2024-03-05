@@ -37,7 +37,7 @@ class ProductController extends Controller
         $categories = Category::all();
         $major_categories = MajorCategory::all();
 
-        return view('products.index', compact('products', 'category', 'major_category', 'categories', 'major_categories', 'total_count'));
+        return view('products.index', compact('products', 'category', 'major_category', 'categories', 'major_categories', 'total_count', 'search'));
     }
 
     /**
@@ -81,15 +81,15 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $reviews = $product->reviews()->get();
         $user = Auth::user();
-        $card_token = Auth::user()->token;
-        
-        if (($request->input('product')) !== null) {
-            $product = $request->input('product');
-            $products = Product::where('name', 'LIKE', "%$search%")->sortable()->paginate(15);
-        }
 
+        if (!empty($user)) {
+            $card_token = Auth::user()->token;
+        } else {
+            $card_token = null;
+        }
+        
+        $reviews = $product->reviews()->get();
 
         return view('products.show', compact('product', 'reviews', 'card_token'));
     }
